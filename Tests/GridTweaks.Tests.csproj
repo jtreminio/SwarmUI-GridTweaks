@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <IsTestProject>true</IsTestProject>
+        <IsPackable>false</IsPackable>
+        <RollForward>LatestMajor</RollForward>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+    </PropertyGroup>
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+        <PackageReference Include="xunit" Version="2.9.2" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <!-- Use the user's existing core build. Tests never rebuild SwarmUI. -->
+        <Reference Include="../../../bin/live_release/*.dll" />
+        <ProjectReference Include="../GridTweaks.csproj" />
+        <Content Include="../Assets/similarity-*" Link="SimilarityAssets/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="../../../BuiltinExtensions/GridGenerator/Assets/*" Link="GridAssets/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="bin/**/*.cs" />
+        <Compile Remove="obj/**/*.cs" />
+        <Compile Remove="**/._*" />
+    </ItemGroup>
+</Project>

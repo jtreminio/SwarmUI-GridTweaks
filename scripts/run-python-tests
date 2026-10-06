@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+if [ -n "${GRIDTWEAKS_TEST_PYTHON:-}" ]; then
+    exec "$GRIDTWEAKS_TEST_PYTHON" -m unittest discover -s Similarity/tests -p 'test_*.py' "$@"
+fi
+exec uv run --project "$ROOT/scripts/python-tests" --locked \
+    python -m unittest discover -s Similarity/tests -p 'test_*.py' "$@"

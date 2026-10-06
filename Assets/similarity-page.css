@@ -1,0 +1,119 @@
+.running-similarity {
+    --running-similarity-inset: max(1rem, calc((100vw - 72rem) / 2));
+    position: sticky;
+    left: var(--running-similarity-inset);
+    margin: 1rem var(--running-similarity-inset);
+    width: min(72rem, calc(100vw - 2rem));
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: .85rem 1rem;
+    border: 1px solid #555;
+    border-radius: .5rem;
+    background: #292929;
+    color: #eee;
+    text-align: left;
+    isolation: isolate;
+}
+.running-similarity-toolbar, .running-similarity-controls, .running-similarity-size-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .65rem 1.1rem;
+}
+.running-similarity label { margin: 0; min-width: 0; display: flex; align-items: center; flex-wrap: wrap; gap: .4rem; }
+.running-similarity .running-similarity-select-field { flex-direction: column; align-items: flex-start; }
+.running-similarity-size-controls { min-width: 0; }
+.running-similarity [hidden] { display: none; }
+.running-similarity-order-note { margin: .65rem 0 0; font-size: .9rem; overflow-wrap: anywhere; }
+.running-similarity select {
+    color: inherit;
+    background: #222;
+    border: 1px solid #777;
+    border-radius: .25rem;
+    padding: .2rem .4rem;
+    max-width: 100%;
+}
+.running-similarity-reference { width: min(32rem, 100%); min-width: 0; }
+.running-similarity-reference-field { flex: 1 1 26rem; }
+.running-similarity-size { width: 5.5rem; padding: .2rem .4rem; border: 1px solid #777; border-radius: .25rem; background: #222; color: inherit; }
+.running-similarity-status, .running-similarity-hint {
+    color: #bbb;
+    font-size: .85rem;
+}
+.running-similarity-summary { cursor: pointer; padding: .15rem 0; font-weight: 600; }
+.running-similarity-content { margin-top: .65rem; padding-top: .85rem; border-top: 1px solid #444; }
+.running-similarity-count { color: #bbb; font-size: .85rem; font-weight: normal; margin-left: .65rem; }
+.running-similarity-controls { margin: .85rem 0 .65rem; justify-content: space-between; }
+.running-similarity button { background: #333; color: #eee; border: 1px solid #666; border-radius: .3rem; padding: .3rem .55rem; font-size: .85rem; }
+.running-similarity button:disabled { opacity: .5; }
+.running-similarity-status { margin: .65rem 0 0; }
+.running-similarity-scroll { overflow: auto; max-height: 22rem; border: 1px solid #444; border-radius: .3rem; isolation: isolate; }
+.running-similarity-scores { width: 100%; font-size: .85rem; border-collapse: separate; border-spacing: 0; }
+.running-similarity-scores th, .running-similarity-scores td {
+    padding: .45rem .6rem;
+    border: 0;
+    border-bottom: 1px solid #444;
+    font-variant-numeric: tabular-nums;
+    word-break: normal;
+}
+/* Core makes every table's first cell sticky. Keep that rule out of this scrollable score table. */
+.running-similarity-scores tbody td { position: static; background: #292929; }
+.running-similarity-scores thead th { position: sticky; top: 0; z-index: 2; background: #383838; background-clip: border-box; white-space: nowrap; }
+.running-similarity-scores td:nth-child(3), .running-similarity-scores td:nth-child(4) { overflow-wrap: anywhere; min-width: 12rem; }
+.running-similarity-scores td:nth-child(-n+2) { width: 2.5rem; text-align: center; }
+.running-similarity-scores td:last-child { white-space: nowrap; }
+.running-similarity button.running-similarity-grip { padding: .1rem .3rem; border-color: transparent; background: transparent; cursor: grab; touch-action: none; user-select: none; font-size: 1.2rem; line-height: 1; }
+.running-similarity button.running-similarity-grip:hover { background: #ffffff12; }
+.running-similarity-dragging { opacity: .5; }
+.running-similarity-drop-before td { box-shadow: inset 0 3px #a6c6ee; }
+.running-similarity-drop-after td { box-shadow: inset 0 -3px #a6c6ee; }
+.running-similarity-visible { width: 1rem; height: 1rem; cursor: pointer; accent-color: #8fbbe9; }
+.running-similarity-column-name { cursor: pointer; }
+.running-similarity-hidden-column td:nth-child(n+3) { color: #999; }
+.running-similarity-badge {
+    padding: .2rem .35rem;
+    font-size: .75rem;
+    font-variant-numeric: tabular-nums;
+    background: #292929;
+    color: #ddd;
+}
+.running-similarity :focus-visible { outline: 2px solid #a6c6ee; outline-offset: 2px; }
+.running-grid-image-identity {
+    position: fixed;
+    top: max(.75rem, env(safe-area-inset-top));
+    left: max(.75rem, env(safe-area-inset-left));
+    z-index: 1;
+    max-width: min(30rem, calc(100vw - 1.5rem));
+    max-height: 40vh;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: .55rem .75rem;
+    border: 1px solid #ffffff30;
+    border-radius: .45rem;
+    background: #181818d9;
+    color: #f5f5f5;
+    font: .85rem/1.4 system-ui, sans-serif;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+.running-grid-image-name {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-weight: 600;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+}
+.running-grid-image-name:focus-visible { outline: 2px solid #a6c6ee; outline-offset: 2px; }
+.running-grid-image-coordinates { margin-top: .2rem; color: #ddd; font-size: .8rem; }
+/* Override the core viewer's 10em gutter. Short seeds fit closely; longer axis values wrap. */
+.image_table .axis_label_td { min-width: 0; width: 1px; padding-inline: .5rem; }
+.image_table .axis_label_td b { display: inline-block; width: max-content; max-width: min(12rem, 20vw); word-break: normal; overflow-wrap: anywhere; }
+.running-grid-sized { table-layout: fixed; margin-left: 0; }
+.running-grid-sized .table_img { width: var(--running-grid-image-width) !important; height: auto !important; max-width: none; }

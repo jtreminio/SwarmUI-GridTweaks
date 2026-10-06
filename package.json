@@ -1,0 +1,30 @@
+{
+    "name": "gridtweaks",
+    "version": "1.0.0",
+    "description": "Persistent comparison galleries for SwarmUI Grid Generator",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "npm run check && npm test && npm run build:assets",
+        "build:assets": "node ./scripts/build.mjs",
+        "check": "biome check . && npm run typecheck",
+        "clean": "rm -f Assets/running-grid.js Assets/running-grid.js.map Assets/similarity-page.js Assets/similarity-page.js.map",
+        "fix": "biome check --write .",
+        "test": "jest --config ./jest.config.cjs",
+        "test:browser": "npm run build:assets && dotnet test GridTweaks.Tests.sln --filter FullyQualifiedName~SimilarityWorkerPublishesPortablePageAndAutoRefreshesWithoutGenerationChanges && playwright test --config ./playwright.config.ts",
+        "test:browser:headed": "npm run test:browser -- --headed",
+        "test:coverage": "jest --config ./jest.config.cjs --coverage",
+        "typecheck": "tsc --noEmit && tsc --project tsconfig.browser.json --noEmit"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.4.11",
+        "@jest/globals": "^30.3.0",
+        "@playwright/test": "^1.63.0",
+        "@types/node": "^25.9.9",
+        "esbuild": "^0.28.0",
+        "jest": "^30.3.0",
+        "jest-environment-jsdom": "^30.3.0",
+        "ts-jest": "^29.4.9",
+        "typescript": "^6.0.2"
+    }
+}

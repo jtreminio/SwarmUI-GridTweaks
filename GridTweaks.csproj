@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <AssemblyName>GridTweaks</AssemblyName>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>annotations</Nullable>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+    </PropertyGroup>
+    <!-- Use the same host assembly as SwarmUI's runtime extension compiler. -->
+    <Import Project="../../SwarmUI.extension.props" />
+    <ItemGroup>
+        <InternalsVisibleTo Include="GridTweaks.Tests" />
+        <Compile Remove="bin/**/*.cs" />
+        <Compile Remove="obj/**/*.cs" />
+        <Compile Remove="Tests/**/*.cs" />
+        <Compile Remove="**/._*" />
+    </ItemGroup>
+</Project>
