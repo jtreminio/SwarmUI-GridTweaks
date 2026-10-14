@@ -1,8 +1,8 @@
 # Grid Tweaks
 
-**Compare more. Rerun less.**
+**Find similar results. Keep comparisons organized.**
 
-Build SwarmUI comparison galleries you can keep refining. Add another model, remove unwanted results, or resume an unfinished run without starting over.
+Find results that look alike with visual similarity scores and sorting. Keep your saved comparisons in one place, and delete unwanted columns along with their images.
 
 ![Models compared side by side using the same seeds](docs/images/model-comparison.webp)
 
@@ -12,11 +12,11 @@ Build SwarmUI comparison galleries you can keep refining. Add another model, rem
 
 ## Choose what grows
 
-The **first axis** is the part of your comparison you can keep adding to. **All other axes keep their original values**, giving each new addition the same comparison points.
+For galleries created through Grid Tweaks, the **first axis** is the part of your comparison you can keep adding to. **All other axes keep their original values**, giving each new addition the same comparison points.
 
 For example, put **Model first and Seed second**. When you find another model worth trying, add it to the gallery and compare it using the same seeds and saved settings as the earlier models.
 
-- **Pick up where you left off.** Fill missing images or resume an interrupted run.
+- **Return to your saved setup.** Choose a named gallery to use its captured prompts, seeds, and settings.
 - **Skip duplicates.** Paste a list of models or LoRAs and use **Keep only new** to remove repeats and values already in the gallery.
 - **Try a temporary change.** Use **Overrides for this run** to apply selected settings without changing your saved setup or existing images.
 - **Refresh changed models.** Regenerate affected results when a model file changes.
@@ -38,7 +38,7 @@ Lower **Difference** scores mean the images look more alike; they do not measure
 
 ## Focus on what matters
 
-Hide rows or columns to narrow your comparison. Drag columns into your preferred order. Adjust **Images per row** for a closer look or a wider overview. Your browser remembers these choices for each gallery.
+Use the gallery's existing row and column hiding to narrow your comparison. Grid Tweaks adds controls to drag columns into your preferred order and adjust **Images per row** for a closer look or a wider overview. Your browser remembers these choices for each gallery.
 
 ![View controls for choosing visible columns and rows and adjusting image size](docs/images/focus-comparison.webp)
 

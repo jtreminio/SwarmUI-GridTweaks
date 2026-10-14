@@ -37,7 +37,7 @@ public partial class GridTweaksExtension : Extension
     {
         Version = "0.1.0";
         ExtensionAuthor = "jtreminio";
-        Description = "Compare more, rerun less. Save and expand image grids, sort by visual similarity, reorder columns, and hide rows or columns.";
+        Description = "Find grid results that look alike. Organize saved comparisons and delete columns you no longer need.";
         Tags = ["grids", "gallery", "comparison"];
     }
 
