@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+case "${1:-}" in
+    --setup-weights)
+        shift
+        set -- -c 'from pathlib import Path; from Similarity.worker import initialize; cache = Path(".cache/test-weights"); cache.mkdir(parents=True, exist_ok=True); initialize(cache, True)' "$@"
+        ;;
+    --lightweight)
+        shift
+        set -- -m unittest Similarity.tests.test_similarity.SimilarityPolicyTests Similarity.tests.test_similarity.DeviceConfigurationTests Similarity.tests.test_similarity_setup.SetupRecoveryTests "$@"
+        ;;
+    *)
+        set -- -m unittest discover -s Similarity/tests -p 'test_*.py' "$@"
+        ;;
+esac
+if [ -n "${GRIDTWEAKS_TEST_PYTHON:-}" ]; then
+    exec "$GRIDTWEAKS_TEST_PYTHON" "$@"
+fi
+exec uv run --project "$ROOT/scripts/python-tests" --locked python "$@"

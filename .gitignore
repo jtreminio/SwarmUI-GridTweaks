@@ -1,0 +1,35 @@
+.claude
+.openai
+AGENTS.dev.md
+
+bin/
+obj/
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.pdb
+Properties/
+.dotnet/
+.aspnet/
+.local/
+**/Directory.Build.local.props
+Directory.Build.rsp
+
+node_modules/
+*.js.map
+coverage/
+.playwright-cli/
+playwright-report/
+test-results/
+
+__pycache__/
+scripts/python-tests/.venv/
+
+# Syncthing scratch files. Never ours; a `git add -A` has committed these before.
+.syncthing.*
+sync-conflict-*
+
+# Private similarity results and test weights
+.cache/
